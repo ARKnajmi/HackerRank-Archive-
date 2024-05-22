@@ -34,7 +34,7 @@ Each row in the table denotes the lengths of each of a triangle's three sides.
           WHEN (A = B) AND (B = C) THEN 'Equilateral'
           WHEN (A =B) OR (C = A) OR (B = C) THEN 'Isosceles'
           ELSE 'Scalene'
-      	END 
+	END 
 	FROM TRIANGLES;
     
 # The PADS
