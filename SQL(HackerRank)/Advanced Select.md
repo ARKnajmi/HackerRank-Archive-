@@ -25,7 +25,8 @@ Each row in the table denotes the lengths of each of a triangle's three sides.
     Equilateral
     Scalene
     Not A Triangle
-
+    
+**Ans**
 
 	SELECT 
  	CASE 
@@ -80,7 +81,7 @@ An OCCUPATIONS table that contains the following records:
     There are a total of 3 actors.
     There are a total of 3 professors.
     
-**Answer**
+**Ans**
 
     SELECT
       CONCAT(NAME,
