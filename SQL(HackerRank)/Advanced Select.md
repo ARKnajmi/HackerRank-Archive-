@@ -146,3 +146,27 @@ The Binary Tree below illustrates the sample:
 	    END
 	FROM BST
 	ORDER  BY N;
+
+# New Companies
+No desc just straight answer(im lazy to add it lul)
+
+**Ans**
+
+	SELECT 
+	    t1.company_code,
+	    t1.founder,
+	    COUNT(DISTINCT t2.lead_manager_code) AS lead_manager_count,
+	    COUNT(DISTINCT t3.senior_manager_code) AS senior_manager_count,
+	    COUNT(DISTINCT t4.manager_code) AS manager_count,
+	    COUNT(DISTINCT t5.employee_code) AS employee_count
+	FROM Company t1
+	INNER JOIN Lead_Manager t2 
+	    ON t1.company_code = t2.company_code 
+	INNER JOIN Senior_Manager t3 
+	    ON t2.company_code = t3.company_code 
+	INNER JOIN Manager t4 
+	    ON t3.company_code = t4.company_code 
+	INNER JOIN Employee t5 
+	    ON t4.company_code = t5.company_code
+	GROUP BY t1.company_code, t1.founder;
+
