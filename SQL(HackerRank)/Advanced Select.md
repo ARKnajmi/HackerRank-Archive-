@@ -169,4 +169,39 @@ No desc just straight answer(im lazy to add it lul)
 	INNER JOIN Employee t5 
 	    ON t4.company_code = t5.company_code
 	GROUP BY t1.company_code, t1.founder;
+ 
+# Occupations
+No desc just straight answer(im lazy to add it lul)
+
+**Ans**
+
+		WITH makeRowNum AS (
+	    SELECT
+	        NAME,
+	        OCCUPATION,
+	        ROW_NUMBER() OVER (PARTITION BY OCCUPATION ORDER BY NAME) AS RowNum
+	    FROM OCCUPATIONS
+	),
+	Pivoted AS (
+	    SELECT
+	        MAX(CASE 
+	                    WHEN OCCUPATION = 'Doctor' THEN NAME 
+	                END) AS Doctor,
+	        MAX(CASE
+	                    WHEN OCCUPATION = 'Professor' THEN NAME 
+	                END) AS Professor,
+	        MAX(CASE 
+	                    WHEN OCCUPATION = 'Singer' THEN NAME 
+	                END) AS Singer,
+	        MAX(CASE 
+	                    WHEN OCCUPATION = 'Actor' THEN NAME 
+	                END) AS Actor,
+	        RowNum
+	    FROM makeRowNum
+	    GROUP BY RowNum
+	)
+	SELECT Doctor, Professor, Singer, Actor
+	FROM Pivoted
+	ORDER BY RowNum;
+
 
