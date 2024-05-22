@@ -136,6 +136,7 @@ where LAT_N is the northern latitude and LONG_W is the western longitude.
 For example, CITY has four entries: DEF, ABC, PQRS and WXY.
 
 **Sample Output**
+
     ABC 3
     PQRS 4
 
@@ -340,6 +341,7 @@ The Name column only contains uppercase (A-Z) and lowercase (a-z) letters.
 ![img](https://s3.amazonaws.com/hr-challenge-images/12896/1443815209-cf4b260993-2.png)
 
 **Sample Output**
+
     Ashley
     Julia
     Belvet
@@ -370,6 +372,7 @@ where employee_id is an employee's ID number, name is their name, months is the 
 ![img](https://s3.amazonaws.com/hr-challenge-images/19629/1458558202-9a8721e44b-ScreenShot2016-03-21at4.32.59PM.png)
 
 **Sample Output**
+
     Angela
     Bonnie
     Frank
@@ -403,6 +406,7 @@ where employee_id is an employee's ID number, name is their name, months is the 
 ![img](https://s3.amazonaws.com/hr-challenge-images/19630/1458558612-af3da3ceb7-ScreenShot2016-03-21at4.32.59PM.png)
 
 **Sample Output**
+
     Angela
     Michael
     Todd
