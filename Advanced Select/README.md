@@ -1,4 +1,4 @@
-### 📌 **Type of Triangle**
+# 📌 **Type of Triangle**
   
 Write a query identifying the type of each record in the TRIANGLES table using its three side lengths. Output one of the following statements for each record in the table:
 
@@ -38,7 +38,7 @@ SELECT
 FROM TRIANGLES;
 ```
 
-### 📌 **The PADS**
+# 📌 **The PADS**
   
 Generate the following two result sets:
 
@@ -107,7 +107,7 @@ GROUP BY OCCUPATION
 ORDER BY COUNT(OCCUPATION) ASC, OCCUPATION ASC;
 ```
     
-### 📌 **Binary Tree Nodes**
+# 📌 **Binary Tree Nodes**
   
 You are given a table, BST, containing two columns: N and P, where N represents the value of a node in Binary Tree, and P is the parent of N.
 
@@ -148,7 +148,8 @@ SELECT
 FROM BST
 ORDER  BY N;
 ```
-### 📌 **New Companies**
+
+# 📌 **New Companies**
 Amber's conglomerate corporation just acquired some new companies. Each of the companies follows this hierarchy:
 
 ![img](https://s3.amazonaws.com/hr-challenge-images/19505/1458531031-249df3ae87-ScreenShot2016-03-21at8.59.56AM.png)
@@ -239,7 +240,7 @@ INNER JOIN Employee t5
 GROUP BY t1.company_code, t1.founder;
 ```
  
-### 📌 **Occupations**
+# 📌 **Occupations**
 Pivot the Occupation column in **OCCUPATIONS** so that each Name is sorted alphabetically and displayed underneath its corresponding Occupation. The output column headers should be Doctor, Professor, Singer, and Actor, respectively.
 
 **Note:** Print **NULL** when there are no more names corresponding to an occupation.
