@@ -1,4 +1,4 @@
-![image](https://github.com/ARKnajmi/HackerRank-Archive-/assets/149140186/7345b7f4-8faf-48e9-81f3-b1c7c06a4837)### 📌 **Type of Triangle**
+### 📌 **Type of Triangle**
   
 Write a query identifying the type of each record in the TRIANGLES table using its three side lengths. Output one of the following statements for each record in the table:
 
