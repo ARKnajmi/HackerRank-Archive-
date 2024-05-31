@@ -436,8 +436,8 @@ WHERE (SELECT
                         WHERE S2.LAT_N > S1.LAT_N);
 ```
 
-```oracle
--- In Oracle you can do this
+```sql
+-- if you using Oracle, u can use this
 SELECT
   ROUND(MEDIAN(LAT_N), 4)
 FROM STATION;
