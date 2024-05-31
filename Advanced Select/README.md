@@ -254,7 +254,7 @@ Occupation will only contain one of the following values: **Doctor, Professor, S
 
 **Sample Input**
 
-![img](https://s3.amazonaws.com/hr-challenge-images/12890/1443817648-1b2b8add45-2.png)]
+![img](https://s3.amazonaws.com/hr-challenge-images/12890/1443817648-1b2b8add45-2.png)
 
 **Sample Output**
 
