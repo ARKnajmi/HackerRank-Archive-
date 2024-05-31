@@ -149,7 +149,8 @@ FROM BST
 ORDER  BY N;
 ```
 ### 📌 **New Companies**
-Amber's conglomerate corporation just acquired some new companies. Each of the companies follows this hierarchy: 
+Amber's conglomerate corporation just acquired some new companies. Each of the companies follows this hierarchy:
+
 ![img](https://s3.amazonaws.com/hr-challenge-images/19505/1458531031-249df3ae87-ScreenShot2016-03-21at8.59.56AM.png)
 
 Given the table schemas below, write a query to print the company_code, founder name, total number of lead managers, total number of senior managers, total number of managers, and total number of employees. Order your output by ascending company_code.
@@ -246,6 +247,7 @@ Pivot the Occupation column in **OCCUPATIONS** so that each Name is sorted alpha
 **Input Format**
 
 The **OCCUPATIONS** table is described as follows:
+
 ![img](https://s3.amazonaws.com/hr-challenge-images/12889/1443816414-2a465532e7-1.png)
 
 Occupation will only contain one of the following values: **Doctor, Professor, Singer** or **Actor.**
