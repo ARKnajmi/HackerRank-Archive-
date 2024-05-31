@@ -29,12 +29,12 @@ Each row in the table denotes the lengths of each of a triangle's three sides.
 **Answer**
 ```sql
 SELECT
-	CASE 
-		WHEN (A + C <= B)  OR  (A + B <= C) OR (B + C <= A) THEN 'Not A Triangle'
-		WHEN (A = B) AND (B = C) THEN 'Equilateral'
-		WHEN (A =B) OR (C = A) OR (B = C) THEN 'Isosceles'
-		ELSE 'Scalene'
-	END 
+ CASE 
+  WHEN (A + C <= B)  OR  (A + B <= C) OR (B + C <= A) THEN 'Not A Triangle'
+  WHEN (A = B) AND (B = C) THEN 'Equilateral'
+  WHEN (A =B) OR (C = A) OR (B = C) THEN 'Isosceles'
+  ELSE 'Scalene'
+ END
 FROM TRIANGLES;
 ```
 
