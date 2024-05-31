@@ -1,4 +1,4 @@
-# Type of Triangle
+### **Type of Triangle**
   
 Write a query identifying the type of each record in the TRIANGLES table using its three side lengths. Output one of the following statements for each record in the table:
 
@@ -26,19 +26,19 @@ Each row in the table denotes the lengths of each of a triangle's three sides.
     Scalene
     Not A Triangle
     
-**Ans**
+**Answer**
 ```sql
-	SELECT 
- 		CASE 
-        	WHEN (A + C <= B)  OR  (A + B <= C) OR (B + C <= A) THEN 'Not A Triangle'
-        	WHEN (A = B) AND (B = C) THEN 'Equilateral'
-        	WHEN (A =B) OR (C = A) OR (B = C) THEN 'Isosceles'
-        	ELSE 'Scalene'
-		END 
-	FROM TRIANGLES;
+SELECT
+	CASE 
+		WHEN (A + C <= B)  OR  (A + B <= C) OR (B + C <= A) THEN 'Not A Triangle'
+		WHEN (A = B) AND (B = C) THEN 'Equilateral'
+		WHEN (A =B) OR (C = A) OR (B = C) THEN 'Isosceles'
+		ELSE 'Scalene'
+	END 
+FROM TRIANGLES;
 ```
 
-# The PADS
+### **The PADS**
   
 Generate the following two result sets:
 
@@ -82,30 +82,30 @@ An OCCUPATIONS table that contains the following records:
     There are a total of 3 actors.
     There are a total of 3 professors.
     
-**Ans**
+**Answer**
+```sql
+SELECT
+	CONCAT(NAME,
+		CASE
+			WHEN OCCUPATION LIKE "Doc%" THEN "(D)"
+			WHEN OCCUPATION LIKE "Act%" THEN "(A)"
+			WHEN OCCUPATION LIKE "Sing%" THEN "(S)"
+			WHEN OCCUPATION LIKE "Prof%" THEN "(P)"
+		END
+	)
+FROM OCCUPATIONS
+ORDER BY NAME ASC;
 
-    SELECT
-      CONCAT(NAME,
-       CASE
-        WHEN OCCUPATION LIKE "Doc%" THEN "(D)"
-        WHEN OCCUPATION LIKE "Act%" THEN "(A)"
-        WHEN OCCUPATION LIKE "Sing%" THEN "(S)"
-        WHEN OCCUPATION LIKE "Prof%" THEN "(P)"
-       END
-      )
-    FROM OCCUPATIONS
-    ORDER BY NAME ASC;
-
-    SELECT 
-      CONCAT('There are a total of ', COUNT(OCCUPATION), ' ', 
-        CASE 
-            WHEN LOWER(OCCUPATION) LIKE '%s' THEN LOWER(OCCUPATION)
-            ELSE CONCAT(LOWER(OCCUPATION), 's')
-        END, 
-      '.') AS summary
-    FROM OCCUPATIONS 
-    GROUP BY OCCUPATION
-    ORDER BY COUNT(OCCUPATION) ASC, OCCUPATION ASC;
+SELECT
+	CONCAT('There are a total of ', COUNT(OCCUPATION), ' ', 
+		CASE 
+			WHEN LOWER(OCCUPATION) LIKE '%s' THEN LOWER(OCCUPATION)
+			ELSE CONCAT(LOWER(OCCUPATION), 's')
+		END, '.') AS summary
+FROM OCCUPATIONS 
+GROUP BY OCCUPATION
+ORDER BY COUNT(OCCUPATION) ASC, OCCUPATION ASC;
+```
     
 # Binary Tree Nodes
   
@@ -137,17 +137,17 @@ Write a query to find the node type of Binary Tree ordered by the value of the n
 The Binary Tree below illustrates the sample:
 
 ![img](https://s3.amazonaws.com/hr-challenge-images/12888/1443773633-f9e6fd314e-simply_sql_bst.png)
-
-	SELECT
-	    N,
-	    CASE
-	        WHEN P IS NULL THEN 'Root'
-	        WHEN N IN (SELECT P FROM BST) THEN 'Inner'
-	        ELSE 'Leaf'
-	    END
-	FROM BST
-	ORDER  BY N;
-
+```sql
+SELECT
+	N,
+	CASE
+		WHEN P IS NULL THEN 'Root'
+		WHEN N IN (SELECT P FROM BST) THEN 'Inner'
+		ELSE 'Leaf'
+	END
+FROM BST
+ORDER  BY N;
+```
 # New Companies
 No desc just straight answer(im lazy to add it lul)
 
