@@ -27,7 +27,7 @@ Each row in the table denotes the lengths of each of a triangle's three sides.
     Not A Triangle
     
 **Ans**
-
+```sql
 	SELECT 
  	CASE 
         WHEN (A + C <= B)  OR  (A + B <= C) OR (B + C <= A) THEN 'Not A Triangle'
