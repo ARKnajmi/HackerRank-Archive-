@@ -1,4 +1,4 @@
-## 📂 **HackerRank**
+## 📂 **HackerRank SQL**
 Solved HackerRank SQL Case Documentation
 
 **Subdomains :**
