@@ -1,4 +1,4 @@
-### **Type of Triangle**
+![image](https://github.com/ARKnajmi/HackerRank-Archive-/assets/149140186/7345b7f4-8faf-48e9-81f3-b1c7c06a4837)### 📌 **Type of Triangle**
   
 Write a query identifying the type of each record in the TRIANGLES table using its three side lengths. Output one of the following statements for each record in the table:
 
@@ -38,7 +38,7 @@ SELECT
 FROM TRIANGLES;
 ```
 
-### **The PADS**
+### 📌 **The PADS**
   
 Generate the following two result sets:
 
@@ -107,7 +107,7 @@ GROUP BY OCCUPATION
 ORDER BY COUNT(OCCUPATION) ASC, OCCUPATION ASC;
 ```
     
-# Binary Tree Nodes
+### 📌 **Binary Tree Nodes**
   
 You are given a table, BST, containing two columns: N and P, where N represents the value of a node in Binary Tree, and P is the parent of N.
 
@@ -148,61 +148,132 @@ SELECT
 FROM BST
 ORDER  BY N;
 ```
-# New Companies
-No desc just straight answer(im lazy to add it lul)
+### 📌 **New Companies**
+Amber's conglomerate corporation just acquired some new companies. Each of the companies follows this hierarchy: 
+![img](https://s3.amazonaws.com/hr-challenge-images/19505/1458531031-249df3ae87-ScreenShot2016-03-21at8.59.56AM.png)
 
-**Ans**
+Given the table schemas below, write a query to print the company_code, founder name, total number of lead managers, total number of senior managers, total number of managers, and total number of employees. Order your output by ascending company_code.
 
-	SELECT 
-	    t1.company_code,
-	    t1.founder,
-	    COUNT(DISTINCT t2.lead_manager_code) AS lead_manager_count,
-	    COUNT(DISTINCT t3.senior_manager_code) AS senior_manager_count,
-	    COUNT(DISTINCT t4.manager_code) AS manager_count,
-	    COUNT(DISTINCT t5.employee_code) AS employee_count
-	FROM Company t1
-	INNER JOIN Lead_Manager t2 
-	    ON t1.company_code = t2.company_code 
-	INNER JOIN Senior_Manager t3 
-	    ON t2.company_code = t3.company_code 
-	INNER JOIN Manager t4 
-	    ON t3.company_code = t4.company_code 
-	INNER JOIN Employee t5 
-	    ON t4.company_code = t5.company_code
-	GROUP BY t1.company_code, t1.founder;
+**Note:**
+* The tables may contain duplicate records.
+* The company_code is string, so the sorting should not be **numeric**. For example, if the company_codes are C_1, C_2, and C_10, then the ascending company_codes will be C_1, C_10, and C_2.
+___
+
+**Input Format**
+The following tables contain company data:
+
+* Company: The company_code is the code of the company and founder is the founder of the company. 
+	![img](https://s3.amazonaws.com/hr-challenge-images/19505/1458531125-deb0a57ae1-ScreenShot2016-03-21at8.50.04AM.png)
+* Lead_Manager: The lead_manager_code is the code of the lead manager, and the company_code is the code of the working company. 
+	![img](https://s3.amazonaws.com/hr-challenge-images/19505/1458534960-2c6d764e3c-ScreenShot2016-03-21at8.50.12AM.png)
+* Senior_Manager: The senior_manager_code is the code of the senior manager, the lead_manager_code is the code of its lead manager, and the company_code is the code of the working company. 
+	![img](https://s3.amazonaws.com/hr-challenge-images/19505/1458534973-6548194998-ScreenShot2016-03-21at8.50.21AM.png)
+* Manager: The manager_code is the code of the manager, the senior_manager_code is the code of its senior manager, the lead_manager_code is the code of its lead manager, and the company_code is the code of the working company. 
+	![img](https://s3.amazonaws.com/hr-challenge-images/19505/1458534988-7fc0af46ce-ScreenShot2016-03-21at8.50.29AM.png)
+* Employee: The employee_code is the code of the employee, the manager_code is the code of its manager, the senior_manager_code is the code of its senior manager, the lead_manager_code is the code of its lead manager, and the company_code is the code of the working company. 
+	![img](https://s3.amazonaws.com/hr-challenge-images/19505/1458535002-d47f63cbb4-ScreenShot2016-03-21at8.50.41AM.png)
+___
+
+**Sample Input**
+Company Table:
+![img](https://s3.amazonaws.com/hr-challenge-images/19505/1458535049-2a207c44b3-ScreenShot2016-03-21at8.50.52AM.png)
+Lead_Manager Table:
+![img](https://s3.amazonaws.com/hr-challenge-images/19505/1458535073-919107f639-ScreenShot2016-03-21at8.51.03AM.png)
+Senior_Manager Table:
+![img](https://s3.amazonaws.com/hr-challenge-images/19505/1458535111-b1c48335b3-ScreenShot2016-03-21at8.51.15AM.png)
+Manager Table:
+![img](https://s3.amazonaws.com/hr-challenge-images/19505/1458535122-888f4bf340-ScreenShot2016-03-21at8.51.26AM.png)
+Employee Table: 
+![img](https://s3.amazonaws.com/hr-challenge-images/19505/1458535134-878767e0d9-ScreenShot2016-03-21at8.51.52AM.png)
+
+**Sample Output**
+
+		C1 Monika 1 2 1 2
+		C2 Samantha 1 1 2 2
+
+**Explanation**
+
+In company C1, the only lead manager is LM1. There are two senior managers, SM1 and SM2, under LM1. There is one manager, M1, under senior manager SM1. There are two employees, E1 and E2, under manager M1.
+
+In company C2, the only lead manager is LM2. There is one senior manager, SM3, under LM2. There are two managers, M2 and M3, under senior manager SM3. There is one employee, E3, under manager M2, and another employee, E4, under manager, M3.
+
+**Answer**
+```sql
+SELECT 
+	t1.company_code,
+	t1.founder,
+	COUNT(DISTINCT t2.lead_manager_code) AS lead_manager_count,
+	COUNT(DISTINCT t3.senior_manager_code) AS senior_manager_count,
+	COUNT(DISTINCT t4.manager_code) AS manager_count,
+	COUNT(DISTINCT t5.employee_code) AS employee_count
+FROM Company t1
+INNER JOIN Lead_Manager t2 
+	ON t1.company_code = t2.company_code 
+INNER JOIN Senior_Manager t3 
+	ON t2.company_code = t3.company_code 
+INNER JOIN Manager t4 
+	ON t3.company_code = t4.company_code 
+INNER JOIN Employee t5 
+	ON t4.company_code = t5.company_code
+GROUP BY t1.company_code, t1.founder;
+```
  
-# Occupations
-No desc just straight answer(im lazy to add it lul)
+### 📌 **Occupations**
+Pivot the Occupation column in **OCCUPATIONS** so that each Name is sorted alphabetically and displayed underneath its corresponding Occupation. The output column headers should be Doctor, Professor, Singer, and Actor, respectively.
 
-**Ans**
+**Note:** Print **NULL** when there are no more names corresponding to an occupation.
 
-		WITH makeRowNum AS (
-	    SELECT
-	        NAME,
-	        OCCUPATION,
-	        ROW_NUMBER() OVER (PARTITION BY OCCUPATION ORDER BY NAME) AS RowNum
-	    FROM OCCUPATIONS
-	),
-	Pivoted AS (
-	    SELECT
-	        MAX(CASE 
-	                    WHEN OCCUPATION = 'Doctor' THEN NAME 
-	                END) AS Doctor,
-	        MAX(CASE
-	                    WHEN OCCUPATION = 'Professor' THEN NAME 
-	                END) AS Professor,
-	        MAX(CASE 
-	                    WHEN OCCUPATION = 'Singer' THEN NAME 
-	                END) AS Singer,
-	        MAX(CASE 
-	                    WHEN OCCUPATION = 'Actor' THEN NAME 
-	                END) AS Actor,
-	        RowNum
-	    FROM makeRowNum
-	    GROUP BY RowNum
-	)
-	SELECT Doctor, Professor, Singer, Actor
-	FROM Pivoted
-	ORDER BY RowNum;
+**Input Format**
+
+The **OCCUPATIONS** table is described as follows:
+![img](https://s3.amazonaws.com/hr-challenge-images/12889/1443816414-2a465532e7-1.png)
+
+Occupation will only contain one of the following values: **Doctor, Professor, Singer** or **Actor.**
+
+**Sample Input**
+
+![img](https://s3.amazonaws.com/hr-challenge-images/12890/1443817648-1b2b8add45-2.png)]
+
+**Sample Output**
+
+			Jenny    Ashley     Meera  Jane
+			Samantha Christeen  Priya  Julia
+			NULL     Ketty      NULL   Maria
+
+**Answer**
+```sql
+WITH makeRowNum AS (
+	SELECT
+		NAME,
+		OCCUPATION,
+		ROW_NUMBER() OVER (PARTITION BY OCCUPATION ORDER BY NAME) AS RowNum
+	FROM OCCUPATIONS
+),
+Pivoted AS (
+	SELECT
+		MAX(CASE 
+			WHEN OCCUPATION = 'Doctor' THEN NAME 
+		END) AS Doctor,
+		MAX(CASE
+			WHEN OCCUPATION = 'Professor' THEN NAME 
+		END) AS Professor,
+		MAX(CASE 
+			WHEN OCCUPATION = 'Singer' THEN NAME 
+		END) AS Singer,
+		MAX(CASE 
+			WHEN OCCUPATION = 'Actor' THEN NAME 
+		END) AS Actor,
+		RowNum
+	FROM makeRowNum
+	GROUP BY RowNum
+)
+SELECT
+	Doctor,
+	Professor,
+	Singer,
+	Actor
+FROM Pivoted
+ORDER BY RowNum;
+```
 
 
