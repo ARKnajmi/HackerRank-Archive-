@@ -1,4 +1,4 @@
-![image](https://github.com/ARKnajmi/HackerRank-Archive-/assets/149140186/c2523d6b-2f34-48ed-9be4-263d9c29b564)![image](https://github.com/ARKnajmi/HackerRank-Archive-/assets/149140186/92389723-7209-4f61-9278-4e26e6421154)### 📌 **Population Census** 
+# 📌 **Population Census** 
   
 Given the **CITY** and **COUNTRY** tables, query the sum of the populations of all cities where the CONTINENT is 'Asia'.
 
@@ -10,7 +10,7 @@ The **CITY** and **COUNTRY** tables are described as follows:
 
 ![img](https://s3.amazonaws.com/hr-challenge-images/8137/1449729804-f21d187d0f-CITY.jpg)
 
-![img](hhttps://s3.amazonaws.com/hr-challenge-images/8342/1449769013-e54ce90480-Country.jpg)
+![img](https://s3.amazonaws.com/hr-challenge-images/8342/1449769013-e54ce90480-Country.jpg)
 
 **Answer**
 
@@ -23,7 +23,7 @@ INNER JOIN COUNTRY
 WHERE CONTINENT = "Asia";
 ```
 
-### 📌 **African Cities** 
+# 📌 **African Cities** 
   
 Given the **CITY** and **COUNTRY** tables, query the names of all cities where the CONTINENT is 'Africa'.
 
@@ -35,7 +35,7 @@ The **CITY** and **COUNTRY** tables are described as follows:
 
 ![img](https://s3.amazonaws.com/hr-challenge-images/8137/1449729804-f21d187d0f-CITY.jpg)
 
-![img](hhttps://s3.amazonaws.com/hr-challenge-images/8342/1449769013-e54ce90480-Country.jpg)
+![img](https://s3.amazonaws.com/hr-challenge-images/8342/1449769013-e54ce90480-Country.jpg)
 
 **Answer**
 
@@ -48,7 +48,7 @@ INNER JOIN COUNTRY
 WHERE CONTINENT = "Africa";
 ```
 
-### 📌 **Average Population of Each Continent** 
+# 📌 **Average Population of Each Continent** 
   
 Given the **CITY** and **COUNTRY** tables, query the names of all the continents (COUNTRY.Continent) and their respective average city populations (CITY.Population) rounded down to the nearest integer. 
 
@@ -60,7 +60,7 @@ The **CITY** and **COUNTRY** tables are described as follows:
 
 ![img](https://s3.amazonaws.com/hr-challenge-images/8137/1449729804-f21d187d0f-CITY.jpg)
 
-![img](hhttps://s3.amazonaws.com/hr-challenge-images/8342/1449769013-e54ce90480-Country.jpg)
+![img](https://s3.amazonaws.com/hr-challenge-images/8342/1449769013-e54ce90480-Country.jpg)
 
 **Answer**
 
@@ -74,7 +74,7 @@ INNER JOIN COUNTRY
 GROUP BY CONTINENT;
 ```
 
-### 📌 **The Report** 
+# 📌 **The Report** 
   
 You are given two tables: Students and Grades. Students contains three columns ID, Name and Marks.
 
@@ -131,7 +131,7 @@ WHERE MARKS BETWEEN MIN_MARK AND MAX_MARK
 ORDER BY GRADE DESC, NAME;
 ```
 
-### 📌 **Top Competitors** 
+# 📌 **Top Competitors** 
   
 Julia just finished conducting a coding contest, and she needs your help assembling the leaderboard! Write a query to print the respective hacker_id and name of hackers who achieved full scores for more than one challenge. Order your output in descending order by the total number of challenges in which the hacker earned a full score. If more than one hacker received full scores in same number of challenges, then sort them by ascending hacker_id.
 ___
@@ -209,7 +209,7 @@ HAVING COUNT(S.HACKER_ID) > 1
 ORDER BY COUNT(S.HACKER_ID) DESC, S.HACKER_ID ASC;
 ```
 
-### 📌 **Ollivander's Inventory** 
+# 📌 **Ollivander's Inventory** 
   
 Harry Potter and his friends are at Ollivander's with Ron, finally replacing Charlie's old broken wand.
 
@@ -306,8 +306,7 @@ WHERE WP.IS_EVIL = 0 AND COINS_NEEDED = (SELECT
 ORDER BY POWER DESC, AGE DESC;
 ```
 
-
-### 📌 **Challenges** 
+# 📌 **Challenges** 
   
 Julia asked her students to create some coding challenges. Write a query to print the hacker_id, name, and the total number of challenges created by each student. Sort your results by the total number of challenges in descending order. If more than one student created the same number of challenges, then sort the result by hacker_id. If more than one student created the same number of challenges and the count is less than the maximum number of challenges created, then exclude those students from the result.
 
@@ -405,3 +404,6 @@ HAVING TOTAL = (SELECT
                               )
 ORDER BY TOTAL DESC, C.HACKER_ID;
 ```
+
+# 📌 **Contest Leaderboard**
+On Progress... (Unsolved)
